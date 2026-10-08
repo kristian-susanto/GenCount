@@ -275,7 +275,7 @@
                 type="email"
                 id="baseEmail"
                 class="form-control form-control-sm"
-                value="user@gmail.com"
+                value="user@example.com"
                 autocomplete="off"
                 spellcheck="false"
               />
@@ -290,7 +290,7 @@
                 type="text"
                 id="catchDomain"
                 class="form-control form-control-sm"
-                value="mydomain.com"
+                value="example.com"
                 autocomplete="off"
                 spellcheck="false"
               />
@@ -462,7 +462,7 @@
                   id="phraseWordsSlider"
                   class="form-range"
                   min="3"
-                  max="12"
+                  max="20"
                   value="4"
                 />
               </div>
@@ -812,16 +812,16 @@
           } else if (type === "plus_email") {
             const base =
               document.getElementById("baseEmail").value.trim() ||
-              "user@gmail.com";
+              "user@example.com";
             const at = base.lastIndexOf("@");
             const local = at > 0 ? base.slice(0, at) : "user";
-            const domain = at > 0 ? base.slice(at + 1) : "gmail.com";
+            const domain = at > 0 ? base.slice(at + 1) : "example.com";
             genUsername.textContent =
               local + "+" + randomToken(6) + "@" + domain;
           } else {
             const domain =
               document.getElementById("catchDomain").value.trim() ||
-              "mydomain.com";
+              "example.com";
             genUsername.textContent = randomToken(8) + "@" + domain;
           }
         }
