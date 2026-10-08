@@ -1,54 +1,44 @@
 # GenCount
 
-A modern, responsive, single-page web application featuring a dual-column workspace tailored for developers and content creators. The left side hosts a powerful **Username and Password/Passphrase Generator** extracted from the main dashboard infrastructure, while the right side features a real-time **Character & Text Counter**.
+A modern, responsive, single-page web application featuring a dual-column workspace tailored for developers and content creators. The left side hosts a powerful **Username and Password/Passphrase Generator**, while the right side features a real-time **Character & Text Counter**.
 
-## 🚀 Live Demo Features
+## 🚀 Features
 
 ### 1. Left Column: Security Generators
 
 - **Username Generator:**
-  - _Random Word Mode:_ Fetches random organic dictionary words with configuration options for capitalization and trailing numeric seeds.
-  - _Plus Addressed Email Mode:_ Dynamically generates standard-compliant aliases (`user+suffix@domain.com`) for tracking source registrations.
-  - _Catch-All Email Mode:_ Creates completely randomized prefixes targeted at a dedicated organizational domain name.
+  - _Random Word Mode:_ Generates random words from an offline dictionary, with options to capitalize and append random digits.
+  - _Plus-Addressed Email Mode:_ Creates standard plus-addressed aliases (`local+suffix@domain.com`) based on a user-provided base email (defaults to `user@example.com`).
+  - _Catch-All Email Mode:_ Generates a random local part against a specified domain (defaults to `example.com`).
 - **Password & Passphrase Generator:**
-  - _Random Password:_ Generates highly secure cryptographically configured passwords with adjustable length up to **128 characters**. Fully filtered control over lowercase, uppercase, digits, and special characters, including an **Ambiguous Character Filter** to eliminate visual confusion (e.g., `l`, `1`, `O`, `0`).
-  - _Memorable Passphrase:_ Constructs human-readable but highly secure combinations of random words bound together via custom delimiters using a responsive slider that scales from **3 to 20 words**.
+  - _Random Password:_ Creates highly secure passwords using the Web Crypto API for randomness. Adjustable length (5–128 characters) with toggles for uppercase, lowercase, digits, and special characters. Includes an **Ambiguous Character Filter** to avoid visually similar characters (`l`, `1`, `O`, `0`). A live strength meter estimates entropy in bits.
+  - _Memorable Passphrase:_ Builds human-readable passphrases from a built-in word list, with a slider for word count (3–20 words), custom separator, and optional capitalization.
 
 ### 2. Right Column: Text & Character Metrics
 
-- **Live Analysis Input:** Tracks all textual adjustments instantly on character input strokes.
-- **Comprehensive Indicators:** Evaluates character counts (with and without space definitions), precise word matching, standard sentence structure boundaries, and line-break metrics.
-- **Reading Time Predictor:** Provides automated estimates of average content processing speeds based on universally certified standard reading baselines.
+- **Live Analysis:** Updates all metrics in real time as you type or paste text.
+- **Comprehensive Indicators:** Tracks characters, characters without spaces, words, sentences, lines, and paragraphs.
+- **Reading Time Predictor:** Estimates reading time based on a standard 200 words-per-minute reading speed.
 
 ### 3. Integrated Enhancements
 
-- **Theme Switcher:** Fluidly transitions between native system configurations via dedicated **Light and Dark modes**, adjusting standard backgrounds, field components, typography, and card panels.
-- **SweetAlert2 Alerts:** Clipboard actions are processed via interactive UI toast frameworks instead of native system dialogs, delivering clean verification contexts and explicit error handling alerts if no value is generated.
+- **Theme Switcher:** Toggle between light and dark modes. The preference is saved in `localStorage` and respects the system preference on first visit.
+- **SweetAlert2 Toasts:** Clipboard actions and errors are reported via non-intrusive toasts that adapt to the current theme.
+- **Fully Responsive:** The layout stacks gracefully on mobile devices and expands to a two-column grid on larger screens.
 
----
+## 🛠️ Technology Stack
 
-## 🛠️ Technological Framework
-
-The platform is designed as a standalone interface without requiring continuous compiling infrastructure:
-
-- **Hypertext Framework:** HTML5 Semantic Structure
-- **Visual Presentation Layout:** Bootstrap v5.3 (Native CSS Variables for responsive columns and component thematic modifications)
-- **Icons Library:** Bootstrap Icons v1.11.3
-- **Alert Layer Handling:** SweetAlert2 v11 JavaScript Injection Engine
-- **Network Request Feeds:** Native JavaScript Fetch API linking directly to the [Random Word Database API](https://random-word-api.herokuapp.com/)
-
----
+- **HTML5** semantic structure
+- **Bootstrap v5.3** for responsive layout and theming (CSS variables)
+- **Bootstrap Icons v1.11.3**
+- **SweetAlert2 v11** for toast notifications
+- **Web Crypto API** for cryptographically secure random values
+- No external API dependencies — all word lists and logic are bundled locally
 
 ## 💻 Quick Start & Deployment
 
-Since this suite is compiled within an optimized frontend single-page design architecture, deployment requires no build phase:
+This is a standalone, single-page application with no build step required.
 
-1. Clone or download the source directory containing the index file.
-2. Launch the file (`index.html`) directly in any contemporary modern browser engine (Chrome, Safari, Edge, Firefox).
-3. Alternatively, drop the file directly into static asset servers, Amazon S3 Buckets, GitHub Pages, or Vercel for instantly accessible global distribution.
-
----
-
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` inside the global project workspace repositories for additional data privacy and use terms.
+1. Download or clone the repository.
+2. Open `index.html` directly in any modern browser (Chrome, Firefox, Safari, Edge).
+3. Alternatively, deploy the file to any static hosting service (GitHub Pages, Vercel, Netlify, Amazon S3, etc.).
